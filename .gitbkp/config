@@ -1,0 +1,12 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "origin"]
+	url = https://lebarcky%40gmail.com@github.com/paulolebarcky/fw1-app.git
+	url = https://lebarcky%40gmail.com@github.com/paulolebarcky/fw1-jsp-app.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
