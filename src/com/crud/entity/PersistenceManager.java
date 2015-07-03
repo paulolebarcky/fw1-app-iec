@@ -42,7 +42,7 @@ public abstract class PersistenceManager {
 
     protected static void createEntityManagerFactory() {
 
-        emf = Persistence.createEntityManagerFactory("com.twit_twit_jar_1.0-SNAPSHOTPU");
+        emf = Persistence.createEntityManagerFactory("JSP-CRUDPU");
         if (DEBUG) {
             System.out.println("n*** Persistence started at " + new java.util.Date());
         }

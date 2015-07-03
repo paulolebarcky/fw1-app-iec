@@ -19,6 +19,11 @@
                     </td>
                 </tr>
                 <tr>
+                    <td colspan="2" style="padding-bottom: 5px;">
+                        Insira os dados e em seguida clique em salvar:
+                    </td>
+                </tr>
+                <tr>
                     <td class="labelTableDadosUsuario">Nome:</td>
                     <td>
                         <input type="text" class="textdadosUsuario" name="name"><br/>

@@ -1,6 +1,7 @@
+<%@page import="com.crud.controller.ProdutoController"%>
+<%@page import="com.crud.entity.Produto"%>
 <%@page contentType="text/html"%>
 <%@taglib uri="http://cewolf.sourceforge.net/taglib/cewolf.tld" prefix="cewolf" %>
-<%@page import="java.awt.*" %>
 <%@page import="java.util.*"%>
 <%@page import="de.laures.cewolf.*"%>
 <%@page import="de.laures.cewolf.cpp.*"%>
@@ -22,7 +23,13 @@
     if (pageContext.getAttribute("initFlag") == null) {
 
         DatasetProducer pieData = new DatasetProducer() {
+
             public Object produceDataset(Map params) {
+
+                Produto p = new Produto();
+                ProdutoController produtoController = new ProdutoController(p);
+                List<Produto> produtos = produtoController.findProdutosPorPercentual(50, 10);
+
                 final String[] categories = {"Até 30%", "De 40 à 60%", "Maior que 60%"};
                 DefaultPieDataset ds = new DefaultPieDataset();
                 for (int i = 0; i < categories.length; i++) {
@@ -62,8 +69,7 @@
     <head>
         <link href="cewolf.css" rel="stylesheet" type="text/css"></head>
     <BODY bgcolor="#DDE8F2">
-        <H1>Gráficos</H1>
-        <p>
+        <td colspan="2" style="padding-top: 30px;"><a href="menu.jsp" >Voltar</a></td>
         <table style="margin-top: 120px;margin-left: 40%;" border="0">
             <TR>
                 <TD>
@@ -98,7 +104,7 @@
                 </TD>
             </TR>           
             <tr>
-                <td colspan="2" style="padding-top: 30px;"><a href="menu.jsp" >Voltar</a></td>
+                
             </tr>
         </TABLE>
     </body>
