@@ -11,9 +11,13 @@
 
     </head>
     <body>
-        <h1>Inserir usuário</h1>
         <form action="inserirUsuario" method="post">
-            <table>
+            <table style="margin-top: 120px;margin-left: 30%;" border="0">
+                <tr>
+                    <td colspan="2" style="padding-bottom: 20px;">
+                        <h1>Cadastro de usuário</h1>
+                    </td>
+                </tr>
                 <tr>
                     <td class="labelTableDadosUsuario">Nome:</td>
                     <td>
@@ -63,7 +67,7 @@
                 </tr>
                 <tr>
                     <td colspan="2" style="text-align: right">
-                        <input type="submit" value="Inserir">
+                        <input type="submit" value="Salvar">
 
                     </td>
 

@@ -38,7 +38,7 @@ public class LoginServlet extends HttpServlet {
             if (usuario != null && usuario.isUsuarioValido()) {
                 HttpSession session = request.getSession(true);
                 session.setAttribute("currentSessionUser", usuario);
-                response.sendRedirect("menu.html");
+                response.sendRedirect("menu.jsp");
             } else {
                 response.sendRedirect("erroLogin.jsp");
             }

@@ -64,7 +64,7 @@
     <BODY bgcolor="#DDE8F2">
         <H1>Gráficos</H1>
         <p>
-        <table border=0>
+        <table style="margin-top: 120px;margin-left: 40%;" border="0">
             <TR>
                 <TD>
                     <cewolf:chart id="pieChart" title="Percentual de produtos com desconto" type="pie">
@@ -98,7 +98,7 @@
                 </TD>
             </TR>           
             <tr>
-                <td colspan="2" style="padding-top: 30px;"><a href="menu.html" target="content">Voltar</a></td>
+                <td colspan="2" style="padding-top: 30px;"><a href="menu.jsp" >Voltar</a></td>
             </tr>
         </TABLE>
     </body>
