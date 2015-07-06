@@ -34,4 +34,25 @@ public class ProdutoController extends PrincipalController<Produto> {
         }
     }
 
+    public List<Object[]> countProdutoPorPercentual() {
+
+        EntityManager em = getEntityManager();
+        List<Object[]> results = null;
+
+        try {
+
+            results = em.createNativeQuery(" select A.total ATE_20, B.total ATE_40, C.total ATE_60, D.total MAIS_60, E.total TOTAL from \n"
+                    + "(select count(*) as total from produto where percentual > 80 and preco > 0) A,\n"
+                    + "(select count(*) as total from produto where percentual between 60 and 80 and preco > 0) B,\n"
+                    + "(select count(*) as total from produto where percentual between 40 and 60 and preco > 0) C,\n"
+                    + "(select count(*) as total from produto where percentual < 40 and preco > 0) D,\n"
+                    + "(select count(*) as total from produto where preco > 0) E").getResultList();
+
+        } finally {
+            em.close();
+        }
+
+        return results;
+
+    }
 }

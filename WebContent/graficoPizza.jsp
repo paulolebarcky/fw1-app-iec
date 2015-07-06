@@ -28,13 +28,14 @@
 
                 Produto p = new Produto();
                 ProdutoController produtoController = new ProdutoController(p);
-                List<Produto> produtos = produtoController.findProdutosPorPercentual(50, 10);
+                List<Object[]> objects = produtoController.countProdutoPorPercentual();
 
-                final String[] categories = {"Até 30%", "De 40 à 60%", "Maior que 60%"};
+                final String[] categories = {"Até 20%", "Até 40%","Até 60%", "Mais de 60%"};
                 DefaultPieDataset ds = new DefaultPieDataset();
                 for (int i = 0; i < categories.length; i++) {
-                    int y = (int) (Math.random() * 10 + 1);
-                    ds.setValue(categories[i], new Integer(y));
+                    Long y = (Long) objects.get(0)[i];
+                    
+                    ds.setValue(categories[i], y);
                 }
                 return ds;
             }

@@ -1,4 +1,3 @@
-<%@page import="javax.swing.JOptionPane"%>
 <%@page import="com.crud.model.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -6,15 +5,23 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="cewolf.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript">
+            function alertSessaoExpirada() {
+                alert("Sua sessão exipirou.\nPor favor, logue novamente");
+            }
+        </script>
+        
     </head>
     <body class="menu">
 
         <%
-            Usuario usu = (Usuario) request.getSession().getAttribute("currentSessionUser");
+            Usuario usu = (Usuario) session.getAttribute("currentSessionUser");
             
             if (usu == null) {
+                %>
+                <input type="hidden" onload="alertSessaoExpirada()" />
+                <%
                 response.sendRedirect("login.jsp");
-                JOptionPane.showMessageDialog(null, "Sua sessão exipirou.\nPor favor, logue novamente");
                 return;
             }
         %>
@@ -32,7 +39,7 @@
                 <td nowrap><a href="filtroListaProduto.jsp" >Lista de produtos</a></td>
 
                 <td width="100%">&nbsp;</td>
-                <td nowrap><a href="login.jsp" onclick="<% session.setAttribute("currentSessionUser", null);%>">Sair</a></td>
+                <td nowrap><a href="logout.jsp">Sair</a></td>
             </tr>
         </table>
 
